@@ -45,6 +45,14 @@ export const textos = {
     whatsapp: "",
   },
 
+  // Música de fundo (arquivo dentro da pasta "public").
+  // Para usar outra música, coloque o arquivo em public/ e troque o nome.
+  // Deixe arquivo: "" para gerar o vídeo sem som.
+  musica: {
+    arquivo: "trilha-reels.wav",
+    volume: 0.8, // 0 a 1
+  },
+
   // Durações em segundos
   duracoes: {
     gancho: 2.6,

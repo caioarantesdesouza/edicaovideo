@@ -1,5 +1,11 @@
 import React from "react";
-import { AbsoluteFill, Sequence } from "remotion";
+import {
+  AbsoluteFill,
+  Html5Audio,
+  interpolate,
+  Sequence,
+  staticFile,
+} from "remotion";
 import { CenaInfo, Fechamento, Gancho } from "./Cenas";
 import { Cena, Fundo, useFontesCarregadas } from "./componentes";
 import { textos } from "./textos";
@@ -22,6 +28,20 @@ export const ReelsConsultorio: React.FC = () => {
   return (
     <AbsoluteFill>
       <Fundo />
+      {textos.musica.arquivo ? (
+        <Html5Audio
+          src={staticFile(textos.musica.arquivo)}
+          volume={(f) =>
+            textos.musica.volume *
+            interpolate(
+              f,
+              [0, 6, DURACAO_TOTAL - 45, DURACAO_TOTAL],
+              [0, 1, 1, 0],
+              { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
+            )
+          }
+        />
+      ) : null}
       <Sequence durationInFrames={GANCHO} name="Gancho">
         <Cena duracao={GANCHO} semEntrada>
           <Gancho />
