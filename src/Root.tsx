@@ -2,6 +2,11 @@ import { Composition, Folder } from "remotion";
 import { HelloWorld } from "./HelloWorld";
 import { Logo } from "./HelloWorld/Logo";
 import { Title } from "./HelloWorld/Title";
+import {
+  DURACAO_TOTAL,
+  FPS,
+  ReelsConsultorio,
+} from "./Reels/ReelsConsultorio";
 
 // Each <Composition> is an entry in the sidebar!
 
@@ -50,7 +55,15 @@ export const RemotionRoot: React.FC = () => {
           titleColor: "#000000",
         }}
       />
-
+      <Composition
+        // Reels do consultório. Textos em src/Reels/textos.ts
+        id="ReelsConsultorio"
+        component={ReelsConsultorio}
+        durationInFrames={DURACAO_TOTAL}
+        fps={FPS}
+        width={1080}
+        height={1920}
+      />
     </>
   );
 };
